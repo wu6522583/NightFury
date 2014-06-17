@@ -4,7 +4,7 @@
 define(function( require , exports , module ){
     function main(){}
     main.prototype.init = function () {
-        alert(111);
+        alert("这里是main.js");
     }
     module.exports = new main().init();
 });
