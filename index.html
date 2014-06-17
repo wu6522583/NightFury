@@ -5,36 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>创驰</title>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.css">
-    <script src="./lib/seajs/dist/sea.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="./web-info/css/main.css">
+    <link rel="stylesheet" href="./web-info/css/normalize.css">
+    <script src="lib/seajs/dist/sea.js"></script>
 </head>
 <body>
 <div class="container" id="panel"></div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3 glyphicon glyphicon-arrow-left"></div>
-            <div class="col-xs-3 glyphicon glyphicon-home"></div>
-            <div class="col-xs-3 glyphicon glyphicon-refresh"></div>
-            <div class="col-xs-3 glyphicon glyphicon-user"></div>
-        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3 glyphicon glyphicon-arrow-left"></div>
+        <div class="col-xs-3 glyphicon glyphicon-home"></div>
+        <div class="col-xs-3 glyphicon glyphicon-refresh"></div>
+        <div class="col-xs-3 glyphicon glyphicon-user"></div>
     </div>
-</footer>
+</div>
 </body>
 </html>
 <script>
     seajs.config({
         base: "../Night Fury/",
         alias: {
-            'bootstrap': 'lib/bootstrap/dist/js/bootstrap.js',
-            "jquery":"lib/jquery/jquery 1.11.1",
-            "panel":"controller/panel"
+            'bootstrap': './lib/bootstrap/dist/js/bootstrap',
+            "jquery":"./lib/jquery/jquery 1.11.1",
+            "panel":"./controller/panel"
         },
         charset: 'utf-8',/*文件编码*/
         debug : 2
     });
     seajs.use(["jquery"],function(){
-        seajs.use("./web-info/js/main");
+        seajs.use("./index.js",function( engine ){
+            engine.start();
+        });
     });
 </script>
