@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>创驰</title>
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="./lib/globalStyle/main.css">
-    <link rel="stylesheet" href="./lib/globalStyle/normalize.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="./lib/globalStyle/global.css">
     <script src="lib/seajs/dist/sea.js"></script>
 </head>
@@ -17,10 +15,10 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-3 glyphicon glyphicon-arrow-left"></div>
-            <div class="col-xs-3 glyphicon glyphicon-home"></div>
+            <div class="col-xs-3 glyphicon glyphicon-arrow-left" ></div>
+            <div class="col-xs-3 glyphicon glyphicon-home" data-src="main"></div>
             <div class="col-xs-3 glyphicon glyphicon-refresh"></div>
-            <div class="col-xs-3 glyphicon glyphicon-user"></div>
+            <div class="col-xs-3 glyphicon glyphicon-user" data-src="user"></div>
         </div>
     </div>
 </footer>
@@ -30,15 +28,16 @@
     seajs.config({
         base: "../Night Fury/",
         alias: {
-            'bootstrap': './lib/bootstrap/dist/js/bootstrap',
+            'bootstrap': './lib/bootstrap/js/bootstrap',
             "jquery":"./lib/jquery/jquery 1.11.1",
-            "panel":"./controller/panel"
+            "page":"./controller/page"
         },
         charset: 'utf-8',/*文件编码*/
         debug : 2
     });
     seajs.use(["jquery"],function(){
         seajs.use("./index.js",function( engine ){
+            engine.init();
             engine.start();
         });
     });
