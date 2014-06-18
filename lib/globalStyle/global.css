@@ -1,0 +1,10 @@
+/* index */
+/* Apple iPhone 5  */
+@media screen and ( max-device-width:640px ) and ( max-device-height:1136px ) {
+    footer{
+        position: fixed;
+        bottom: 0px;
+        height: 50px;
+        width: 100%;
+    }
+}

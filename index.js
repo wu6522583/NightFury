@@ -6,7 +6,7 @@ define(function(require , exports , module){
     require("bootstrap");
     function engine(){}
     engine.prototype.start = function (){
-        $("#panel").panel({
+        $("#body").panel({
             href:"./web-info/html/main.html"
         });
     }
