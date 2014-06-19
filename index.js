@@ -12,11 +12,14 @@ define(function(require , exports , module){
         });
     }
     engine.prototype.start = function (){
-        $("footer>.container>.row").delegate("div","click",function( ev ){
-            if ( !ev.currentTarget.dataset.src ) {
+        $("footer>.container>.row").delegate("div","click", function( ev ){
+            var _val = ev.currentTarget.dataset.src;
+            if ( "prve" == _val ) {
                 page.prev();
+            } else if ( "refresh" == _val ) {
+                page.refresh();
             } else {
-                var href = _htmlSrc + ev.currentTarget.dataset.src + ".html"
+                var href = _htmlSrc + _val + ".html"
                 page.go( href );
             }
             ev.stopPropagation();

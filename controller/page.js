@@ -14,21 +14,30 @@ define(function( require , exports , module ){
     }
     page.prototype.prev = function () {
         var self = this;
-        $.each( this.stack , function ( k , K ) {
-            self.prevURL = k;
-        });
+        $.each( this.stack , function ( ) {self.prevURL = arguments[0];});
         var _m = this.stack[this.prevURL];
         delete this.stack[this.prevURL];
         this.$main.html(_m);
-        var a = 1;
     }
     page.prototype.go = function ( url ) {
-        this.$main.panel({href:url});
+        var self = this;
+        this.$main.panel({
+            href:url,
+            onload:function( a ){
+                var a = new a();
+                a.init();
+            }
+        });
     }
-    page.prototype.push = function( key ,value ){
-        if ( this.stack[key] ) delete this.stack[key];
-        this.stack[key] = value;
-        var a = 1;
+    page.prototype.refresh = function ( ) {
+        var currentPage = this.$main.data('nf.controller.panel').options.pageObject;
+        currentPage = new currentPage();
+        currentPage.init();
+    }
+    page.prototype.push = function( currHref , prevHref , val ){
+        if ( this.stack[currHref] )
+            delete this.stack[currHref];
+        this.stack[prevHref] = val;
     }
     var _page = new page();
     window.page = _page;

@@ -3,8 +3,7 @@
  */
 define(function(require,exports,module){
     function user(){}
-    user.prototype.init = function(){
-
+    user.prototype.init = function() {
     }
-    module.exports = new user().init();
+    module.exports = user;
 });
