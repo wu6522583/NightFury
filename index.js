@@ -8,7 +8,7 @@ define(function(require , exports , module){
     function engine(){}
     engine.prototype.init = function(){
         page.init({
-            "main":$("#body")
+            "main":$(".wapper")
         });
     }
     engine.prototype.start = function (){

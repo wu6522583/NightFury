@@ -1,12 +1,25 @@
 /* index */
 /* Apple iPhone 5  */
-@media screen and ( max-device-width:640px ) and ( max-device-height:1136px ) {
+@media screen and ( max-device-width:640px ) and ( max-device-height:960px ) {
     footer{
-        position: fixed;
+        position: absolute;
         bottom: 0px;
         height: 40px;
         width: 100%;
         text-align: center;
         font-size: 28px;
+        background-color: #bed58d;
+        background-color: hsla(59, 57%, 11%, 0.80);
+        background-color: rgba(32, 253, 255, 0.60);
+    }
+    .wapper{
+        position: absolute;
+        height: 528px;
+        overflow-y: auto;
+        width: 100%;
+        max-height: 528px;
+    }
+    .index_nav_icon{
+        line-height: 38px;
     }
 }

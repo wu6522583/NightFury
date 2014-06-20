@@ -4,7 +4,7 @@
 define(function( require , exports , module ){
     function main(){}
     main.prototype.init = function () {
-        alert(1);
+        setTimeout(function(){ alert(1); page.go("./web-info/html/editor.html") } , 2000);
     }
     module.exports = main;
 });
