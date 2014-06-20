@@ -1,11 +1,13 @@
 define(function( require , exports , module ){
     require("./panel");
     function page(){
-        this.stack = {};
+        this.pageStack = {};
+        this.objStatck = {};
         this.prevURL = "";
     }
     page.prototype.init = function ( _opt ) {
-        this.stack = {};
+        this.pageStack = {};
+        this.objStatck = {};
         this.prevURL = "";
         if ( _opt.main )
             this.$main = _opt.main;
@@ -14,10 +16,17 @@ define(function( require , exports , module ){
     }
     page.prototype.prev = function () {
         var self = this;
-        $.each( this.stack , function ( ) {self.prevURL = arguments[0];});
-        var _m = this.stack[this.prevURL];
-        delete this.stack[this.prevURL];
+        $.each( this.pageStack , function ( ) {self.prevURL = arguments[0];});
+        var _m = this.pageStack[this.prevURL];
+        var _mO = this.objStatck [this.prevURL];
+        if ( !_m ) {
+            return;
+        }
+        delete this.pageStack[this.prevURL];
+        delete  this.objStatck [this.prevURL];
         this.$main.html(_m);
+        this.$main.data(_mO);
+        var a = 1;
     }
     page.prototype.go = function ( url ) {
         var self = this;
@@ -35,9 +44,11 @@ define(function( require , exports , module ){
         currentPage.init();
     }
     page.prototype.push = function( currHref , prevHref , val ){
-        if ( this.stack[currHref] )
-            delete this.stack[currHref];
-        this.stack[prevHref] = val;
+        if ( this.pageStack[currHref] && this.objStatck[currHref])
+            delete this.pageStack[currHref],delete this.objStatck[currHref];
+        this.pageStack[prevHref] = val;
+        var clone = $.extend(true,{},this.$main.data());
+        this.objStatck[prevHref] = clone;
     }
     var _page = new page();
     window.page = _page;

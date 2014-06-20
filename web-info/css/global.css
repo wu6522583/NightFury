@@ -1,36 +1,25 @@
 /* index */
-html, body
-{
-    height: 100%;
-}
 /* Apple iPhone 5  */
-@media screen and ( max-device-width:640px ) and ( max-device-height:1136px ) {
-    .Wrapper
-    {
-        min-height: 100%;
-    }
+@media screen and ( max-device-width:640px ) and ( max-device-height:960px ) {
     footer{
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        width: 100%;
         text-align: center;
         font-size: 28px;
-        background-color: #008B8B;
-        clear: both; /* 清除浮动元素格式 */
-        position: relative;
-        margin-top: -40px; /* Footer 高度的负值 */
-        height: 40px; /* Footer 高度 */
+        background-color: #bed58d;
+        background-color: hsla(59, 57%, 11%, 0.80);
+        background-color: rgba(32, 253, 255, 0.60);
     }
-    .icon-height
-    {
-        line-height: 39px; /* 图标居中显示，footer高度 减去 1 px */
+    .wapper{
+        position: absolute;
+        height: 528px;
+        overflow-y: auto;
+        width: 100%;
+        max-height: 528px;
     }
-    .Wrapper .FooterPush
-    {
-        height: 40px; /* Footer 的高度 */
-    }
-    .Wrapper .body{
-        background-color: #269abc;
-    }
-    .main-title{
-        line-height: 140px;
-        text-align: center;
+    .index_nav_icon{
+        line-height: 38px;
     }
 }

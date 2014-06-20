@@ -11,17 +11,16 @@
     <script src="lib/seajs/dist/sea.js"></script>
 </head>
 <body>
-<div class="Wrapper">
-    <div class="container body"></div>
-    <div class="FooterPush"></div>
+<div class="container">
+    <div class="row wapper"></div>
 </div>
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-3 glyphicon glyphicon-arrow-left icon-height" data-src="prve"></div>
-            <div class="col-xs-3 glyphicon glyphicon-home icon-height" data-src="main"></div>
-            <div class="col-xs-3 glyphicon glyphicon-refresh icon-height" data-src="refresh"></div>
-            <div class="col-xs-3 glyphicon glyphicon-user icon-height" data-src="user"></div>
+            <div class="col-xs-3 glyphicon glyphicon-arrow-left index_nav_icon" data-src="prve"></div>
+            <div class="col-xs-3 glyphicon glyphicon-home index_nav_icon" data-src="main"></div>
+            <div class="col-xs-3 glyphicon glyphicon-refresh index_nav_icon" data-src="refresh"></div>
+            <div class="col-xs-3 glyphicon glyphicon-user index_nav_icon" data-src="user"></div>
         </div>
     </div>
 </footer>
@@ -36,7 +35,7 @@
             "page":"./controller/page"
         },
         charset: 'utf-8',/*文件编码*/
-        debug:2
+        debug : 2
     });
     seajs.use(["jquery"],function(){
         seajs.use("./index.js",function( engine ){
