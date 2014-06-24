@@ -3,8 +3,8 @@
  */
 define(function(require , exports , module){
     require("page");
+    require("mapping");
     require("bootstrap");
-    var _htmlSrc = "./web-info/html/";
     function engine(){}
     engine.prototype.init = function(){
         page.init({
@@ -19,8 +19,7 @@ define(function(require , exports , module){
             } else if ( "refresh" == _val ) {
                 page.refresh();
             } else {
-                var href = _htmlSrc + _val + ".html"
-                page.go( href );
+                page.go( _val );
             }
             ev.stopPropagation();
         });

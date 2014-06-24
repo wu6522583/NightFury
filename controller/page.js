@@ -28,15 +28,17 @@ define(function( require , exports , module ){
         this.$main.data(_mO);
         var a = 1;
     }
-    page.prototype.go = function ( url ) {
-        var self = this;
+    page.prototype.go = function ( key ) {
+        var def = $.Deferred();
+        var _href = Mapping[key];
+        if (!_href) return;
         this.$main.panel({
-            href:url,
-            onload:function( a ){
-                var a = new a();
-                a.init();
+            href:_href,
+            onload:function(){
+                def.resolve(arguments[0]);
             }
         });
+        return def.promise();
     }
     page.prototype.refresh = function ( ) {
         var currentPage = this.$main.data('nf.controller.panel').options.pageObject;
